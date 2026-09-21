@@ -1,3 +1,7 @@
+// Author: Darian Byrne
+// License: GPL3
+// Help given to: Thomas Radulescu, Filip Raguz
+
 package main
 
 import (
