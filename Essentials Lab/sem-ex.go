@@ -41,6 +41,7 @@ func main() {
 	fmt.Println(out)
 }
 
+// (collatz conjecture)
 func collatzSteps(n int) (steps int) {
 	if n <= 0 {
 		panic("nonpositive input")
