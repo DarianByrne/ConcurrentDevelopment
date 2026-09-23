@@ -1,6 +1,6 @@
 // Author: Darian Byrne
 // License: GPL3
-// Help received from: Milosz Cwynar, Oliwier Jakubiec, Mykhailo Balaker
+// Help received from: Milosz Cwynar, Oliwier Jakubiec, §
 
 package main
 
