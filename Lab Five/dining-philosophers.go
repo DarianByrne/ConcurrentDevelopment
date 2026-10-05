@@ -16,9 +16,9 @@
 
 //--------------------------------------------
 // Author: Darian Byrne
-// Help received from: Mykhailo Balaker, Oliwier Jakubiec
+// Help received from: Mykhailo Balaker, Oliwier Jakubiec, Brandon Jaroszczak
 // Help given to:
-// Created on 28/09/2026
+// Created on 05/10/2026
 // Modified by:
 // Issues:
 //--------------------------------------------
@@ -47,13 +47,23 @@ func eat(index int) {
 }
 
 func getForks(index int, forks map[int]chan bool) {
-	forks[index] <- true
-	forks[(index+1)%5] <- true
+	if index == 4 { // the footman
+		forks[(index+1)%5] <- true
+		forks[index] <- true
+	} else {
+		forks[index] <- true
+		forks[(index+1)%5] <- true
+	}
 }
 
 func putForks(index int, forks map[int]chan bool) {
-	<-forks[index]
-	<-forks[(index+1)%5]
+	if index == 4 { // the footman
+		<-forks[(index+1)%5]
+		<-forks[index]
+	} else {
+		<-forks[index]
+		<-forks[(index+1)%5]
+	}
 }
 
 func doPhilStuff(index int, wg *sync.WaitGroup, forks map[int]chan bool) {
